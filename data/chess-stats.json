@@ -1,0 +1,22 @@
+{
+  "stats": {
+    "rapid": {
+      "rating": 2168,
+      "games": 0
+    },
+    "blitz": {
+      "rating": 1960,
+      "games": 0
+    },
+    "bullet": {
+      "rating": 2118,
+      "games": 0
+    },
+    "puzzles": {
+      "rating": 3283,
+      "total": 0
+    },
+    "totalGames": 0
+  },
+  "lastUpdated": 1749162694544
+}
