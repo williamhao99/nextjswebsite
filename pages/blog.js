@@ -81,11 +81,7 @@ export default function Blog() {
                           <time className="body-1 feed-calendar" dateTime={date.toISOString()}>
                             {dayMonth}
                           </time>
-                          <div className="feed-icon">
-                            <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <polyline points="9,18 15,12 9,6"></polyline>
-                            </svg>
-                          </div>
+                          <div className="feed-icon">→</div>
                         </div>
                       </div>
                       <Link href={`/blog/${post.slug}`} className="u-permalink" aria-label={post.title}></Link>

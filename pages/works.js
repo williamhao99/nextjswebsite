@@ -32,7 +32,10 @@ export default function Works() {
             <div className="cards kg-grid kg-grid-2col container medium">
               <div className="card">
                 <div className="card-wrapper">
-                  <h3 className="h3 card-title">Project Placeholder →</h3>
+                  <h3 className="h3 card-title">
+                    Project Placeholder
+                    <span className="card-arrow">↗</span>
+                  </h3>
                   <div className="sub-heading card-excerpt">
                     Placeholder description.
                   </div>
@@ -41,7 +44,10 @@ export default function Works() {
               </div>
               <div className="card">
                 <div className="card-wrapper">
-                  <h3 className="h3 card-title">Project Placeholder 2 →</h3>
+                  <h3 className="h3 card-title">
+                    Project Placeholder 2
+                    <span className="card-arrow">↗</span>
+                  </h3>
                   <div className="sub-heading card-excerpt">
                     Placeholder description.
                   </div>

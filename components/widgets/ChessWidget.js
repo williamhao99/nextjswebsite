@@ -1,6 +1,4 @@
-import BaseWidget from './BaseWidget';
-
-const ChessWidget = () => {
+const ChessWidget = ({ data }) => {
   const uscfRating = 1815; // USCF rating - manually maintained since there's no public API
 
   const formatRating = (rating) => rating ? Math.round(rating) : '—';
@@ -22,27 +20,35 @@ const ChessWidget = () => {
     </svg>
   );
 
-  const renderContent = (data) => (
-    <div className="chess-info">
-      <div className="chess-ratings">
-        <div className="rating-row">
-          <div className="rating-item">
-            <span className="rating-label">Rapid</span>
-            <span className="rating-value">{formatRating(data?.rapid?.rating)}</span>
-          </div>
-          <div className="rating-item">
-            <span className="rating-label">Blitz</span>
-            <span className="rating-value">{formatRating(data?.blitz?.rating)}</span>
-          </div>
+  const content = (
+    <div className="widget-row">
+      <div className="chess-left-section">
+        <div className="chess-icon" aria-hidden="true">
+          {icon}
         </div>
-        <div className="rating-row">
-          <div className="rating-item">
-            <span className="rating-label">Bullet</span>
-            <span className="rating-value">{formatRating(data?.bullet?.rating)}</span>
+        <div className="widget-username">javablob</div>
+      </div>
+      <div className="chess-info">
+        <div className="chess-ratings">
+          <div className="rating-row">
+            <div className="rating-item">
+              <span className="rating-label">Rapid</span>
+              <span className="rating-value">{formatRating(data?.rapid?.rating)}</span>
+            </div>
+            <div className="rating-item">
+              <span className="rating-label">Blitz</span>
+              <span className="rating-value">{formatRating(data?.blitz?.rating)}</span>
+            </div>
           </div>
-          <div className="rating-item">
-            <span className="rating-label">USCF</span>
-            <span className="rating-value">{uscfRating}</span>
+          <div className="rating-row">
+            <div className="rating-item">
+              <span className="rating-label">Bullet</span>
+              <span className="rating-value">{formatRating(data?.bullet?.rating)}</span>
+            </div>
+            <div className="rating-item">
+              <span className="rating-label">USCF</span>
+              <span className="rating-value">{uscfRating}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -50,15 +56,19 @@ const ChessWidget = () => {
   );
 
   return (
-    <BaseWidget
-      type="chess"
-      endpoint="/api/chess/stats"
-      interval={30 * 60 * 1000} // 30 minutes
-      username="javablob"
-      link="https://chess.com/member/javablob"
-      icon={icon}
-      renderContent={renderContent}
-    />
+    <div className="chess-widget-container">
+      <div className="chess-widget">
+        <a
+          href="https://chess.com/member/javablob"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="chess-widget-link"
+          aria-label="View chess profile"
+        >
+          {content}
+        </a>
+      </div>
+    </div>
   );
 };
 

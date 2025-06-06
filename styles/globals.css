@@ -1,5 +1,4 @@
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+/* Google Fonts are now loaded via next/font in _app.js */
 
 :root {
   --brand-color: #0055aa;
@@ -1167,15 +1166,11 @@ a:focus-visible {
   position: absolute;
   right: 0;
   color: var(--secondary-text-color);
-  line-height: 0;
+  line-height: 1;
   transition: transform 0.2s var(--animation-base);
   transform: translateX(2rem);
-}
-
-.feed-icon .icon {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
 .u-permalink {
@@ -2315,4 +2310,63 @@ a:focus-visible {
     -1.5rem 1.5rem 0 #8BB6E8,
     1.5rem -1.5rem 0 #8BB6E8,
     -1.5rem -1.5rem 0 #8BB6E8;
+}
+
+/* ==========================================================================
+   Enhanced Card Hover Animations (Works Page)
+   ========================================================================== */
+
+/* Enhanced card styles to match blog feed animations */
+.card {
+  position: relative;
+  transition: all 0.2s var(--animation-base);
+}
+
+/* Override the basic opacity hover from theme CSS */
+.card:hover {
+  opacity: 1 !important;
+}
+
+/* Card title hover effects */
+.card:hover .card-title {
+  opacity: 0.8;
+}
+
+/* Dynamic card title with flexbox */
+.card-title {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s var(--animation-base);
+  position: relative;
+  gap: 1rem;
+}
+
+/* Card arrow styling with dynamic positioning */
+.card-arrow {
+  color: var(--secondary-text-color);
+  transition: all 0.2s var(--animation-base);
+  opacity: 0;
+  font-size: 2rem;
+  text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor, 0 0.5px 0 currentColor, 0 -0.5px 0 currentColor;
+  transform: translateX(1rem);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Show and animate arrow on hover */
+.card:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Card excerpt hover effects */
+.card:hover .card-excerpt {
+  opacity: 0.9;
+}
+
+/* Add extra spacing between Works page sections */
+.section-personal-project {
+  margin-top: 7rem;
+  margin-bottom: 4rem;
 }

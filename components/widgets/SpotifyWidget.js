@@ -33,17 +33,26 @@ function SpotifyWidgetContainer({ trackData, isPlaying, loading, placeholder }) 
     return (
       <div className="spotify-widget-container">
         <div className="spotify-widget not-playing">
-          <div className="spotify-widget-link">
+          <a
+            href="https://open.spotify.com/user/williamhao99?si=a55b81b68fab41dc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="spotify-widget-link"
+            aria-label="View Spotify profile"
+          >
             <div className="spotify-left-section">
               <SpotifyIcon />
             </div>
             <div className="spotify-info">
               <div className="spotify-track">
                 <span className="track-name">Spotify</span>
-                <span className="track-artist">No recent activity</span>
+                <span className="track-artist">williamhao99</span>
+              </div>
+              <div className="spotify-status">
+                <span className="last-played">View my profile</span>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     );
@@ -112,6 +121,12 @@ function SpotifyWidgetContainer({ trackData, isPlaying, loading, placeholder }) 
 }
 
 export default function SpotifyWidget() {
+  // For now, show placeholder state since Spotify API requires authentication
+  // TODO: Re-implement Spotify API with proper authentication
+  return <SpotifyWidgetContainer placeholder />;
+
+  // Commented out the old implementation that was causing 404 errors
+  /*
   const [trackData, setTrackData] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -157,4 +172,5 @@ export default function SpotifyWidget() {
       isPlaying={isPlaying}
     />
   );
+  */
 }
