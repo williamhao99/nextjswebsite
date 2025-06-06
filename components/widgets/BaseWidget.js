@@ -48,7 +48,7 @@ const BaseWidget = ({
     : username || loadingText;
 
   const content = (
-    <>
+    <div className="widget-row">
       <div className={`${type}-left-section`}>
         <div className={`${type}-icon`} aria-hidden="true">
           {icon}
@@ -56,7 +56,7 @@ const BaseWidget = ({
         <div className="widget-username">{displayUsername}</div>
       </div>
       {renderContent(data, loading, error)}
-    </>
+    </div>
   );
 
   return (

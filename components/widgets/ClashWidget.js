@@ -1,7 +1,7 @@
 import BaseWidget from './BaseWidget';
 
 const ClashWidget = () => {
-  const formatTrophies = (trophies) => trophies ? trophies.toLocaleString() : '0';
+  const formatTrophies = (trophies) => trophies ? String(trophies) : '0';
 
   const getTownHallEmoji = (level) => {
     const emojiMap = {
@@ -28,29 +28,24 @@ const ClashWidget = () => {
   );
 
   const renderContent = (data) => (
-    <>
-      <div className="clash-info">
-        <div className="clash-main">
-          <div className="trophies-info">
-            <div className="trophy-item">
-              <span className="trophy-label">Current</span>
-              <span className="trophy-value">🏆 {formatTrophies(data?.trophies)}</span>
-            </div>
-            <div className="trophy-item">
-              <span className="trophy-label">Best</span>
-              <span className="trophy-value">⭐ {formatTrophies(data?.bestTrophies)}</span>
-            </div>
-          </div>
+    <div className="clash-row">
+      {/* Town Hall section in the middle */}
+      <div className="clash-townhall">
+        <span className="th-emoji">{getTownHallEmoji(data?.townHallLevel)}</span>
+        <span className="th-level">TH{data?.townHallLevel || '?'}</span>
+      </div>
+      {/* Trophies section on the right */}
+      <div className="clash-trophies-col">
+        <div className="trophy-row">
+          <span className="trophy-label">CURRENT</span>
+          <span className="trophy-value"><span role="img" aria-label="trophy">🏆</span>{formatTrophies(data?.trophies)}</span>
+        </div>
+        <div className="trophy-row">
+          <span className="trophy-label">BEST</span>
+          <span className="trophy-value"><span role="img" aria-label="star">⭐</span>{formatTrophies(data?.bestTrophies)}</span>
         </div>
       </div>
-
-      <div className="clash-right-section">
-        <div className="town-hall-centered">
-          <span className="th-emoji">{getTownHallEmoji(data?.townHallLevel)}</span>
-          <span className="th-level">TH{data?.townHallLevel || '?'}</span>
-        </div>
-      </div>
-    </>
+    </div>
   );
 
   return (

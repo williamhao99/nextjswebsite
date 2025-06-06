@@ -1329,7 +1329,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-footer .wave-separator {
-  opacity: 0.6;
+  opacity: 1;
   margin: 2rem 0;
 }
 
@@ -1886,14 +1886,12 @@ a:focus-visible {
 .spotify-widget-link,
 .chess-widget-link,
 .clash-widget-link {
+  height: 98px;
+  min-height: 98px;
+  max-height: 98px;
+  padding: 1.4rem 1.6rem;
   display: flex;
   align-items: center;
-  gap: 1.4rem;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.2s var(--animation-base);
-  min-height: 7rem;
-  padding: 1.4rem 1.6rem;
 }
 
 .chess-widget-link {
@@ -2227,7 +2225,7 @@ a:focus-visible {
 
 /* Not playing loading states */
 .spotify-widget.not-playing .spotify-icon {
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .spotify-widget.not-playing:hover .spotify-icon {
@@ -2365,11 +2363,12 @@ a:focus-visible {
   line-height: 1.2;
 }
 
-.town-hall {
+.clash-townhall {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 0.6rem;
-  flex-shrink: 0;
+  gap: 0.5rem;
+  min-width: 6.5rem;
 }
 
 .th-emoji {
@@ -2381,49 +2380,6 @@ a:focus-visible {
   font-weight: var(--font-weight-bold);
   color: var(--primary-text-color);
   font-family: var(--font-serif);
-}
-
-.trophies-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.4rem;
-  align-items: center;
-}
-
-.trophy-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  text-align: center;
-}
-
-.trophy-label {
-  font-size: 1rem;
-  color: var(--tertiary-text-color);
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  line-height: 1;
-}
-
-.trophy-value {
-  font-size: 1.6rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--primary-text-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  line-height: 1;
-}
-
-.clash-right-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  min-width: 5rem;
 }
 
 /* ==========================================================================
@@ -2833,10 +2789,57 @@ a:focus-visible {
   background: var(--color-lighter-gray);
 }
 
-.no-profile .gh-head-inner {
-  /* Custom styling when no profile photo */
+.widget-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 3rem;
 }
 
-.with-feature-image {
-  /* Additional styling for pages with feature images */
+.clash-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3.5rem;
+  width: auto;
+}
+
+.clash-trophies-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  min-width: 7.5rem;
+  margin-right: 0.8rem;
+}
+
+.trophy-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.trophy-label {
+  font-size: 1rem;
+  color: var(--tertiary-text-color);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1;
+}
+
+.trophy-value {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-text-color);
+  font-family: var(--font-serif);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }

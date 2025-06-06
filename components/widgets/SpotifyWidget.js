@@ -16,7 +16,6 @@ function SpotifyWidgetContainer({ trackData, isPlaying, loading, placeholder }) 
           <div className="spotify-widget-link">
             <div className="spotify-left-section">
               <SpotifyIcon />
-              <div className="widget-username">willhao</div>
             </div>
             <div className="spotify-info">
               <div className="spotify-track">
@@ -37,11 +36,10 @@ function SpotifyWidgetContainer({ trackData, isPlaying, loading, placeholder }) 
           <div className="spotify-widget-link">
             <div className="spotify-left-section">
               <SpotifyIcon />
-              <div className="widget-username">willhao</div>
             </div>
             <div className="spotify-info">
               <div className="spotify-track">
-                <span className="track-name">Spotify Widget</span>
+                <span className="track-name">Spotify</span>
                 <span className="track-artist">No recent activity</span>
               </div>
             </div>
@@ -74,7 +72,6 @@ function SpotifyWidgetContainer({ trackData, isPlaying, loading, placeholder }) 
         <LinkWrapper>
           <div className="spotify-left-section">
             <SpotifyIcon />
-            <div className="widget-username">willhao</div>
           </div>
 
           <div className="spotify-info">
