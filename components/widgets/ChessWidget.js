@@ -1,4 +1,24 @@
-const ChessWidget = ({ data }) => {
+import { useState, useEffect } from 'react';
+
+const ChessWidget = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const response = await fetch('/api/chess');
+        const stats = await response.json();
+        setData(stats);
+      } catch (error) {
+        console.error("Failed to fetch chess stats", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStats();
+  }, []);
+
   const uscfRating = 1815; // USCF rating - manually maintained since there's no public API
 
   const formatRating = (rating) => rating ? Math.round(rating) : '—';
@@ -33,17 +53,17 @@ const ChessWidget = ({ data }) => {
           <div className="rating-row">
             <div className="rating-item">
               <span className="rating-label">Rapid</span>
-              <span className="rating-value">{formatRating(data?.rapid?.rating)}</span>
+              <span className="rating-value">{loading ? '...' : formatRating(data?.rapid?.rating)}</span>
             </div>
             <div className="rating-item">
               <span className="rating-label">Blitz</span>
-              <span className="rating-value">{formatRating(data?.blitz?.rating)}</span>
+              <span className="rating-value">{loading ? '...' : formatRating(data?.blitz?.rating)}</span>
             </div>
           </div>
           <div className="rating-row">
             <div className="rating-item">
               <span className="rating-label">Bullet</span>
-              <span className="rating-value">{formatRating(data?.bullet?.rating)}</span>
+              <span className="rating-value">{loading ? '...' : formatRating(data?.bullet?.rating)}</span>
             </div>
             <div className="rating-item">
               <span className="rating-label">USCF</span>
@@ -57,7 +77,7 @@ const ChessWidget = ({ data }) => {
 
   return (
     <div className="chess-widget-container">
-      <div className="chess-widget">
+      <div className={`chess-widget ${loading ? 'loading' : ''}`}>
         <a
           href="https://chess.com/member/javablob"
           target="_blank"

@@ -6,8 +6,6 @@ import ClashWidget from './widgets/ClashWidget';
 export default function Hero({
   heroText = "I'm Will — welcome to my website!",
   description = "I am a rising sophomore at UT Austin, and this website serves as my personal portfolio that contains my work, blog, projects, and more.",
-  chessData,
-  clashData
 }) {
   return (
     <section className="container medium section-hero">
@@ -19,8 +17,8 @@ export default function Hero({
           )}
           <div className="hero-widgets">
             <SpotifyWidget />
-            <ChessWidget data={chessData} />
-            <ClashWidget data={clashData} />
+            <ChessWidget />
+            <ClashWidget />
           </div>
         </div>
       </div>
