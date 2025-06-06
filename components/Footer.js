@@ -59,7 +59,7 @@ export default function Footer() {
             <h3 className="footer-section-title">Explore</h3>
             <nav className="footer-nav">
               <Link href="/about" className="footer-link">About</Link>
-              <Link href="/works" className="footer-link">Work</Link>
+              <Link href="/works" className="footer-link">Works</Link>
               <Link href="/blog" className="footer-link">Blog</Link>
               <Link href="/now" className="footer-link">Now</Link>
               <Link href="/timeline" className="footer-link">Timeline</Link>

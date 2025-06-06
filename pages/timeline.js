@@ -8,7 +8,7 @@ export default function Timeline() {
         <main className="site-main site-layout">
           <PageHeader
             title="Timeline"
-            description="My journey through education, projects, and experiences"
+            description="A timeline of my personal life, student, and career milestones."
             isHero={true}
           />
 

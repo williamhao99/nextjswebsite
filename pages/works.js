@@ -18,7 +18,7 @@ export default function Works() {
           {/* Page Header */}
           <PageHeader
             title="Works"
-            description="A collection of projects and creative work."
+            description="A list of projects I've created, and my work experience history."
             isHero={true}
           />
 

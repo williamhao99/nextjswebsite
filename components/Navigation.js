@@ -75,7 +75,7 @@ export default function Navigation({ posts = [], pages = [] }) {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/works', label: 'Work' },
+    { href: '/works', label: 'Works' },
     { href: '/blog', label: 'Blog' },
     { href: '/now', label: 'Now' },
     { href: '/timeline', label: 'Timeline' },

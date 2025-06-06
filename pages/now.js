@@ -9,7 +9,7 @@ export default function Now() {
 
           <PageHeader
             title="Now"
-            description="What I'm focused on at this point in my life."
+            description="An updated page of what I'm currently working on."
             isHero={true}
           />
 

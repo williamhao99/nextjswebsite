@@ -27,7 +27,7 @@ export default function Archive() {
         <main className="site-main">
           <PageHeader
             title="Archive"
-            description="Complete archive of all posts and content"
+            description="An archive of all my posts to date."
             isHero={true}
           />
           <section className="section-container">
