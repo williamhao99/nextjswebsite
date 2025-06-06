@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Layout from '../components/Layout';
 import PageHeader from '../components/PageHeader';
 import PostCard from '../components/PostCard';
+import { formatDate } from '../lib/utils';
 
 // Placeholder archive posts for demo purposes
 const placeholderArchivePosts = [
@@ -44,9 +45,22 @@ export default function Archive() {
           <section className="section-container">
             <div className="container medium">
               <div className="post-feed">
-                {publishedArchivePosts.map((post, index) => (
-                  <PostCard key={post.id} post={post} noDate={true} noLink={false} />
-                ))}
+                {publishedArchivePosts.map((post, index) => {
+                  // Use the same date formatting as blog.js
+                  const date = new Date(post.published_at);
+                  const year = date.getFullYear();
+                  const monthName = date.toLocaleDateString('en-US', { month: 'long' });
+                  const dayMonth = date.toLocaleDateString('en-US', { day: '2-digit', month: 'short' });
+                  return (
+                    <PostCard
+                      key={post.id}
+                      post={post}
+                      noDate={true}
+                      noLink={false}
+                      feedLayout="List"
+                    />
+                  );
+                })}
               </div>
             </div>
           </section>
