@@ -4,6 +4,17 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import SearchModal from './SearchModal';
+import { icons } from '../lib/icons';
+
+function ThemeToggleIcon() {
+  return (
+    <div className="theme-toggle-icon">
+      <div className="moon-or-sun">
+        <div className="moon-mask"></div>
+      </div>
+    </div>
+  );
+}
 
 export default function Navigation({ posts = [], pages = [] }) {
   const [theme, setTheme] = useState('light');
@@ -94,21 +105,14 @@ export default function Navigation({ posts = [], pages = [] }) {
                 aria-label="Toggle theme"
                 onClick={toggleTheme}
               >
-                <div className="theme-toggle-icon">
-                  <div className="moon-or-sun">
-                    <div className="moon-mask"></div>
-                  </div>
-                </div>
+                <ThemeToggleIcon />
               </button>
               <button
                 className="gh-search gh-icon-btn"
                 aria-label="Search this site"
                 onClick={() => setIsSearchOpen(true)}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="11" cy="11" r="8"/>
-                  <path d="m21 21-4.35-4.35"/>
-                </svg>
+                <div className="search-icon" dangerouslySetInnerHTML={{ __html: icons['search'] }} />
               </button>
             </div>
           </nav>

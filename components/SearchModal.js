@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { formatDate } from '../lib/utils'
+import { icons } from '../lib/icons'
 
 export default function SearchModal({ isOpen, onClose, posts, pages }) {
   const [searchTerm, setSearchTerm] = useState('')
@@ -109,12 +110,7 @@ export default function SearchModal({ isOpen, onClose, posts, pages }) {
     <div className="search-modal-overlay">
       <div className="search-modal" ref={modalRef}>
         <div className="search-modal-input-wrapper">
-          <div className="search-modal-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8"/>
-              <path d="m21 21-4.35-4.35"/>
-            </svg>
-          </div>
+          <div className="search-modal-icon" dangerouslySetInnerHTML={{ __html: icons['search'] }} />
           <input
             ref={searchInputRef}
             type="text"
@@ -130,7 +126,7 @@ export default function SearchModal({ isOpen, onClose, posts, pages }) {
           <div className="search-modal-results">
             {searchResults.length === 0 ? (
               <div className="search-modal-no-results">
-                <div className="search-modal-no-results-icon">🔍</div>
+                <div className="search-modal-no-results-icon" dangerouslySetInnerHTML={{ __html: icons['search'] }} />
                 <div>No results found for "{searchTerm}"</div>
               </div>
             ) : (
@@ -175,7 +171,7 @@ export default function SearchModal({ isOpen, onClose, posts, pages }) {
 
         {!searchTerm && (
           <div className="search-modal-empty">
-            <div className="search-modal-empty-icon">🔍</div>
+            <div className="search-modal-empty-icon" dangerouslySetInnerHTML={{ __html: icons['search'] }} />
             <div className="search-modal-empty-title">Search willhao.info</div>
             <div className="search-modal-empty-subtitle">Type to search posts and pages</div>
           </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { truncateText } from '../lib/utils';
+import { icons } from '../lib/icons';
 
 const CardProject = ({
   post,
@@ -80,19 +81,9 @@ const CardProject = ({
         <h2 className={`${isLarge ? 'h2' : 'h3'} card-title`}>
           {title}{' '}
           {canonical_url ? (
-            <span className="icon-arrow-upright">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17 13.5v6H7v-10h6V8H5.5v13h13V13.5z"></path>
-                <path d="M17 8.5h-4V4.5h4z"></path>
-                <path d="M19 8.5L14.5 4H13v4.5h-4V10h4v4.5h1.5V10H19z"></path>
-              </svg>
-            </span>
+            <span className="icon-arrow-upright" dangerouslySetInnerHTML={{ __html: icons['arrow-upright'] }} />
           ) : (
-            <span className="icon-arrow-right">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.707 11.293l-5.293-5.293-1.414 1.414L13.586 12l-4.586 4.586 1.414 1.414 5.293-5.293a1 1 0 000-1.414z"></path>
-              </svg>
-            </span>
+            <span className="icon-arrow-right" dangerouslySetInnerHTML={{ __html: icons['arrow-right'] }} />
           )}
         </h2>
 

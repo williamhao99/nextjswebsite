@@ -1,11 +1,11 @@
 {
   "stats": {
     "rapid": {
-      "rating": 2168,
+      "rating": 2192,
       "games": 0
     },
     "blitz": {
-      "rating": 1960,
+      "rating": 1952,
       "games": 0
     },
     "bullet": {
@@ -18,5 +18,5 @@
     },
     "totalGames": 0
   },
-  "lastUpdated": 1749162694544
+  "lastUpdated": 1749180958101
 }

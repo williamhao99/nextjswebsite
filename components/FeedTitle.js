@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { icons } from '../lib/icons';
 
 /**
  * FeedTitle renders the equivalent of feed-title.hbs as a React component.
@@ -24,10 +25,7 @@ export default function FeedTitle({ title = '', viewAll = false, url = '' }) {
           <Link href={url}>
             <a className="section-title link-view-all button button-text">
               <span className="link-label">View all</span>
-              {/* Arrow‐right icon:
-                  If you have an actual SVG component, import it and replace the <span> below.
-                  For now, we use a placeholder span with the same CSS class your theme expects. */}
-              <span className="icon-arrow-right" />
+              <span className="icon-arrow-right" dangerouslySetInnerHTML={{ __html: icons['arrow-right'] }} />
             </a>
           </Link>
         )}
