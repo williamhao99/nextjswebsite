@@ -13,14 +13,14 @@ export default function About() {
         <main className="site-main site-layout">
           <PageHeader
             title="About"
-            description=""
+            description="Last updated: "
             isHero={true}
           />
 
           <section className="section-container">
             <div className="container medium">
               <div className="page-content">
-                {/* */}
+                <p>Placeholder text</p>
               </div>
             </div>
           </section>

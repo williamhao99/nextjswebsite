@@ -42,7 +42,7 @@ export default function Archive() {
                   return (
                     <article key={post.id} className={`feed archive-wrapper post-year-${year} post-date-${month}`} data-month={`${monthName} ${year}`}>
                       <div className="date-wrapper">
-                        <div className="section-title year-post-label">{year} BLOG</div>
+                        <div className="section-title year-post-label">{year}</div>
                         <div className="section-title month-post-label">✦ {monthName.toUpperCase()}</div>
                       </div>
                       <div className="feed-wrapper">
