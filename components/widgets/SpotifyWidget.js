@@ -43,13 +43,12 @@ function SpotifyWidgetContainer({ trackData, isPlaying, loading, placeholder }) 
             <div className="spotify-left-section">
               <SpotifyIcon />
             </div>
-            <div className="spotify-info">
+            <div className="spotify-info-centered">
               <div className="spotify-track">
                 <span className="track-name">Spotify</span>
-                <span className="track-artist">williamhao99</span>
               </div>
               <div className="spotify-status">
-                <span className="last-played">View my profile</span>
+                <span className="last-played">No recent activity</span>
               </div>
             </div>
           </a>

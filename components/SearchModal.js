@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { formatDate } from '../lib/utils'
-import { icons } from '../lib/icons'
+import SearchIcon from './icons/SearchIcon'
 
 export default function SearchModal({ isOpen, onClose, posts, pages }) {
   const [searchTerm, setSearchTerm] = useState('')
@@ -110,7 +110,9 @@ export default function SearchModal({ isOpen, onClose, posts, pages }) {
     <div className="search-modal-overlay">
       <div className="search-modal" ref={modalRef}>
         <div className="search-modal-input-wrapper">
-          <div className="search-modal-icon" dangerouslySetInnerHTML={{ __html: icons['search'] }} />
+          <div className="search-modal-icon">
+            <SearchIcon size={20} />
+          </div>
           <input
             ref={searchInputRef}
             type="text"
@@ -126,7 +128,9 @@ export default function SearchModal({ isOpen, onClose, posts, pages }) {
           <div className="search-modal-results">
             {searchResults.length === 0 ? (
               <div className="search-modal-no-results">
-                <div className="search-modal-no-results-icon" dangerouslySetInnerHTML={{ __html: icons['search'] }} />
+                <div className="search-modal-no-results-icon">
+                  <SearchIcon size={20} />
+                </div>
                 <div>No results found for "{searchTerm}"</div>
               </div>
             ) : (
@@ -171,7 +175,9 @@ export default function SearchModal({ isOpen, onClose, posts, pages }) {
 
         {!searchTerm && (
           <div className="search-modal-empty">
-            <div className="search-modal-empty-icon" dangerouslySetInnerHTML={{ __html: icons['search'] }} />
+            <div className="search-modal-empty-icon">
+              <SearchIcon size={24} />
+            </div>
             <div className="search-modal-empty-title">Search willhao.info</div>
             <div className="search-modal-empty-subtitle">Type to search posts and pages</div>
           </div>

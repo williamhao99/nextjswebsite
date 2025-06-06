@@ -123,7 +123,6 @@ a {
 }
 
 a:hover {
-  opacity: 0.9;
 }
 
 img {
@@ -457,6 +456,9 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.gh-burger {
   transition: all 0.2s var(--animation-base);
 }
 
@@ -1100,7 +1102,7 @@ a:focus-visible {
 }
 
 .feed:not(.no-link):hover .feed-title {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .feed:not(.no-link):hover .feed-right {
@@ -1469,7 +1471,6 @@ a:focus-visible {
 .clash-widget:hover {
   border-color: var(--brand-color);
   box-shadow: 0 4px 16px rgba(0, 85, 170, 0.12);
-  transform: translateY(-1px);
 }
 
 .spotify-widget-link,
@@ -1493,11 +1494,7 @@ a:focus-visible {
   padding: 1.6rem 1.8rem;
 }
 
-.spotify-widget-link:hover,
-.chess-widget-link:hover,
-.clash-widget-link:hover {
-  background: var(--hero-background-color);
-}
+
 
 .spotify-widget-link:focus-visible,
 .chess-widget-link:focus-visible,
@@ -1515,7 +1512,6 @@ a:focus-visible {
   flex-shrink: 0;
   background: transparent;
   border-radius: 0.6rem;
-  transition: all 0.2s var(--animation-base);
 }
 
 .spotify-icon {
@@ -1536,24 +1532,22 @@ a:focus-visible {
   overflow: hidden;
 }
 
-.spotify-widget:hover .spotify-icon,
-.chess-widget:hover .chess-icon,
-.clash-widget:hover .clash-icon {
-  transform: scale(1.05);
-}
 
-.spotify-widget:hover .spotify-icon {
-  color: #1ed760 !important;
-}
-
-.clash-widget:hover .clash-icon {
-  background: rgba(255, 193, 7, 0.18);
-}
 
 .spotify-icon svg,
 .chess-icon svg {
   color: inherit !important;
   fill: currentColor !important;
+}
+
+.spotify-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chess-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .clash-icon svg {
@@ -1595,6 +1589,17 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+}
+
+.spotify-info-centered {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .spotify-track {
@@ -1678,32 +1683,19 @@ a:focus-visible {
   flex-shrink: 0;
   background: var(--color-lighter-gray);
   border: 1px solid var(--divider-color);
-  transition: all 0.2s var(--animation-base);
-}
-
-.spotify-widget:hover .album-art {
-  transform: scale(1.02);
-  border-color: var(--brand-color);
 }
 
 .album-art img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all 0.2s var(--animation-base);
-}
-
-.spotify-widget:hover .album-art img {
-  transform: scale(1.05);
 }
 
 .spotify-widget.not-playing .spotify-icon {
   opacity: 1;
 }
 
-.spotify-widget.not-playing:hover .spotify-icon {
-  opacity: 1;
-}
+
 
 .spotify-widget.loading,
 .chess-widget.loading,
@@ -1742,10 +1734,7 @@ a:focus-visible {
   color: #1DB954 !important;
 }
 
-:root[data-theme="dark"] .spotify-widget:hover .spotify-icon {
-  background: transparent;
-  color: #1ed760 !important;
-}
+
 
 .chess-info {
   flex: 1;
@@ -2329,7 +2318,7 @@ a:focus-visible {
 
 /* Card title hover effects */
 .card:hover .card-title {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Dynamic card title with flexbox */

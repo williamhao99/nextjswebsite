@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import SearchModal from './SearchModal';
-import { icons } from '../lib/icons';
+import SearchIcon from './icons/SearchIcon';
 
 function ThemeToggleIcon() {
   return (
@@ -132,7 +132,9 @@ export default function Navigation({ posts = [], pages = [] }) {
                 aria-label="Search this site"
                 onClick={() => setIsSearchOpen(true)}
               >
-                <div className="search-icon" dangerouslySetInnerHTML={{ __html: icons['search'] }} />
+                <div className="search-icon">
+                  <SearchIcon size={18} />
+                </div>
               </button>
             </div>
           </nav>

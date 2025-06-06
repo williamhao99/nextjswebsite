@@ -1,4 +1,4 @@
-const SearchIcon = ({ className = "icon", size = 20 }) => (
+const SearchIcon = ({ className, size = 20 }) => (
   <svg
     className={className}
     xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ const SearchIcon = ({ className = "icon", size = 20 }) => (
     strokeLinejoin="round"
   >
     <circle cx="11" cy="11" r="8"/>
-    <path d="m21 21-4.35-4.35"/>
+    <path d="m23 23-6.35-6.35"/>
   </svg>
 );
 
