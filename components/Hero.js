@@ -1,7 +1,7 @@
 // components/Hero.js
-import SpotifyWidget from './SpotifyWidget';
-import ChessWidget from './ChessWidget';
-import ClashWidget from './ClashWidget';
+import SpotifyWidget from './widgets/SpotifyWidget';
+import ChessWidget from './widgets/ChessWidget';
+import ClashWidget from './widgets/ClashWidget';
 
 export default function Hero({
   heroText = "I'm Will — welcome to my website!",
