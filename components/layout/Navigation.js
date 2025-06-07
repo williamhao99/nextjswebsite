@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import SearchModal from './SearchModal';
-import SearchIcon from './icons/SearchIcon';
+import SearchModal from '../features/SearchModal';
+import SearchIcon from '../icons/SearchIcon';
 
 function ThemeToggleIcon() {
   return (
@@ -78,8 +78,7 @@ export default function Navigation({ posts = [], pages = [] }) {
     { href: '/works', label: 'Works' },
     { href: '/blog', label: 'Blog' },
     { href: '/now', label: 'Now' },
-    { href: '/timeline', label: 'Timeline' },
-    { href: '/archive', label: 'Archive' }
+    { href: '/timeline', label: 'Timeline' }
   ];
 
   return (

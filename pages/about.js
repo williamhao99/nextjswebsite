@@ -1,7 +1,6 @@
 // pages/about.js
 
-import Layout from '../components/Layout'
-import PageHeader from '../components/PageHeader'
+import { Layout, PageHeader } from '../components'
 
 export default function About() {
   return (

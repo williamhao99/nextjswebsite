@@ -1,5 +1,4 @@
-import Layout from '../components/Layout';
-import PageHeader from '../components/PageHeader';
+import { Layout, PageHeader } from '../components';
 
 export default function Now() {
   return (

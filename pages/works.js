@@ -5,8 +5,7 @@
  * Links to individual project pages and content.
  */
 
-import Layout from '../components/Layout';
-import PageHeader from '../components/PageHeader';
+import { Layout, PageHeader } from '../components';
 import Link from 'next/link';
 
 export default function Works() {

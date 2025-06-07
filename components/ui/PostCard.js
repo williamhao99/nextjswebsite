@@ -1,7 +1,7 @@
 // components/PostCard.js
 import Link from 'next/link';
 import Image from 'next/image';
-import { formatDate } from '../lib/utils';
+import { formatDate } from '../../lib/utils';
 
 export default function PostCard({
   post,

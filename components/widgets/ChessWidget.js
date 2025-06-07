@@ -1,23 +1,11 @@
-import { useState, useEffect } from 'react';
+import useApiData from '../../lib/hooks/useApiData';
 
 const ChessWidget = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const response = await fetch('/api/chess');
-        const stats = await response.json();
-        setData(stats);
-      } catch (error) {
-        console.error("Failed to fetch chess stats", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchStats();
-  }, []);
+  const { data, loading, error } = useApiData('/api/chess', {
+    retryAttempts: 3,
+    retryDelay: 1500,
+    refetchInterval: 5 * 60 * 1000 // Refetch every 5 minutes
+  });
 
   const uscfRating = 1815; // USCF rating - manually maintained since there's no public API
 
@@ -40,7 +28,44 @@ const ChessWidget = () => {
     </svg>
   );
 
-  const content = (
+  // Loading skeleton with same dimensions
+  const LoadingSkeleton = () => (
+    <div className="widget-row">
+      <div className="chess-left-section">
+        <div className="chess-icon loading-skeleton" aria-hidden="true">
+          {icon}
+        </div>
+        <div className="widget-username loading-text">javablob</div>
+      </div>
+      <div className="chess-info">
+        <div className="chess-ratings">
+          <div className="rating-row">
+            <div className="rating-item">
+              <span className="rating-label">Rapid</span>
+              <span className="rating-value loading-dots">Loading...</span>
+            </div>
+            <div className="rating-item">
+              <span className="rating-label">Blitz</span>
+              <span className="rating-value loading-dots">Loading...</span>
+            </div>
+          </div>
+          <div className="rating-row">
+            <div className="rating-item">
+              <span className="rating-label">Bullet</span>
+              <span className="rating-value loading-dots">Loading...</span>
+            </div>
+            <div className="rating-item">
+              <span className="rating-label">USCF</span>
+              <span className="rating-value">{uscfRating}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Error state with same dimensions
+  const ErrorState = () => (
     <div className="widget-row">
       <div className="chess-left-section">
         <div className="chess-icon" aria-hidden="true">
@@ -53,17 +78,17 @@ const ChessWidget = () => {
           <div className="rating-row">
             <div className="rating-item">
               <span className="rating-label">Rapid</span>
-              <span className="rating-value">{loading ? '...' : formatRating(data?.rapid?.rating)}</span>
+              <span className="rating-value error-text">—</span>
             </div>
             <div className="rating-item">
               <span className="rating-label">Blitz</span>
-              <span className="rating-value">{loading ? '...' : formatRating(data?.blitz?.rating)}</span>
+              <span className="rating-value error-text">—</span>
             </div>
           </div>
           <div className="rating-row">
             <div className="rating-item">
               <span className="rating-label">Bullet</span>
-              <span className="rating-value">{loading ? '...' : formatRating(data?.bullet?.rating)}</span>
+              <span className="rating-value error-text">—</span>
             </div>
             <div className="rating-item">
               <span className="rating-label">USCF</span>
@@ -75,9 +100,56 @@ const ChessWidget = () => {
     </div>
   );
 
+  // Loaded content with same dimensions
+  const LoadedContent = () => (
+    <div className="widget-row">
+      <div className="chess-left-section">
+        <div className="chess-icon" aria-hidden="true">
+          {icon}
+        </div>
+        <div className="widget-username">javablob</div>
+      </div>
+      <div className="chess-info">
+        <div className="chess-ratings">
+          <div className="rating-row">
+            <div className="rating-item">
+              <span className="rating-label">Rapid</span>
+              <span className="rating-value">{formatRating(data?.rapid?.rating)}</span>
+            </div>
+            <div className="rating-item">
+              <span className="rating-label">Blitz</span>
+              <span className="rating-value">{formatRating(data?.blitz?.rating)}</span>
+            </div>
+          </div>
+          <div className="rating-row">
+            <div className="rating-item">
+              <span className="rating-label">Bullet</span>
+              <span className="rating-value">{formatRating(data?.bullet?.rating)}</span>
+            </div>
+            <div className="rating-item">
+              <span className="rating-label">USCF</span>
+              <span className="rating-value">{uscfRating}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Render appropriate content based on state
+  const renderContent = () => {
+    if (error && !data) {
+      return <ErrorState />;
+    }
+    if (loading && !data) {
+      return <LoadingSkeleton />;
+    }
+    return <LoadedContent />;
+  };
+
   return (
     <div className="chess-widget-container">
-      <div className={`chess-widget ${loading ? 'loading' : ''}`}>
+      <div className={`chess-widget ${loading ? 'loading' : ''} ${error ? 'error' : ''}`}>
         <a
           href="https://chess.com/member/javablob"
           target="_blank"
@@ -85,7 +157,7 @@ const ChessWidget = () => {
           className="chess-widget-link"
           aria-label="View chess profile"
         >
-          {content}
+          {renderContent()}
         </a>
       </div>
     </div>

@@ -9,8 +9,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Layout from '../components/Layout'
-import PageHeader from '../components/PageHeader'
+import { Layout, PageHeader } from '../components'
 
 // Placeholder blog posts for demo purposes
 const placeholderPosts = [
@@ -57,12 +56,12 @@ export default function Blog() {
                   const dayMonth = date.toLocaleDateString('en-US', { day: '2-digit', month: 'short' })
 
                   return (
-                    <article key={post.id} className={`feed archive-wrapper post-year-${year} post-date-${month}`} data-month={`${monthName} ${year}`}>
+                    <article key={post.id} className={`feed blog-wrapper blog-post-year-${year} blog-post-date-${month}`} data-month={`${monthName} ${year}`}>
 
-                      {/* Date wrapper - always shown for archive style */}
-                      <div className="date-wrapper">
-                        <div className="section-title year-post-label">{year} BLOG</div>
-                        <div className="section-title month-post-label">✦ {monthName.toUpperCase()}</div>
+                      {/* Date wrapper - always shown for blog style */}
+                      <div className="blog-date-wrapper">
+                        <div className="section-title blog-year-label">{year} BLOG</div>
+                        <div className="section-title blog-month-label">✦ {monthName.toUpperCase()}</div>
                       </div>
 
                       {/* Post Content */}

@@ -1,9 +1,9 @@
 // components/Footer.js
 import Link from 'next/link';
-import LinkedInIcon from './icons/LinkedInIcon';
-import InstagramIcon from './icons/InstagramIcon';
-import GitHubIcon from './icons/GitHubIcon';
-import SpotifyIcon from './icons/SpotifyIcon';
+import LinkedInIcon from '../icons/LinkedInIcon';
+import InstagramIcon from '../icons/InstagramIcon';
+import GitHubIcon from '../icons/GitHubIcon';
+import SpotifyIcon from '../icons/SpotifyIcon';
 
 const socialLinks = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/william-a-hao/', Icon: LinkedInIcon },
@@ -31,7 +31,6 @@ export default function Footer() {
               <Link href="/blog" className="footer-link">Blog</Link>
               <Link href="/now" className="footer-link">Now</Link>
               <Link href="/timeline" className="footer-link">Timeline</Link>
-              <Link href="/archive" className="footer-link">Archive</Link>
             </nav>
           </div>
 

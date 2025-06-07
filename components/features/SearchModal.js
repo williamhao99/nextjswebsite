@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { formatDate } from '../lib/utils'
-import SearchIcon from './icons/SearchIcon'
+import { formatDate } from '../../lib/utils'
+import SearchIcon from '../icons/SearchIcon'
 
 export default function SearchModal({ isOpen, onClose, posts, pages }) {
   const [searchTerm, setSearchTerm] = useState('')

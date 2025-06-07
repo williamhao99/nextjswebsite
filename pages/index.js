@@ -6,8 +6,7 @@
  */
 
 // pages/index.js
-import Layout from '../components/Layout';
-import Hero from '../components/Hero';
+import { Layout, Hero } from '../components';
 
 // No more getStaticProps! The page is now fully static.
 // Widget data is fetched client-side for faster initial page load.
